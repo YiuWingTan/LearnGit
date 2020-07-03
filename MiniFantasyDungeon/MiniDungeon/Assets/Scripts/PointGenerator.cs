@@ -42,7 +42,7 @@ public class PointGenerator : MonoBehaviour {
         return new Vector3(r*_radius*Mathf.Cos(rad),r*_radius*Mathf.Sin(rad));
     }
 
-
+    
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;

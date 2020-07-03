@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scene/Text.unity
+- path: D:/UnityProjects/LearnGit2/MiniFantasyDungeon/MiniDungeon/Assets/Scene/Text.unity
   isLoaded: 1
   isActive: 1
