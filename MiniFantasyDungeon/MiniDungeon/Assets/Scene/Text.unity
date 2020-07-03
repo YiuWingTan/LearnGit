@@ -236,4 +236,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   preb: {fileID: 1455296271816492, guid: 3f7a68b9fc0a28243998ee870077154b, type: 2}
   radius: 2.63
-  max_generateNumber: 100
+  max_generateNumber: 10000

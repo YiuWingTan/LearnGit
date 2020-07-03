@@ -22,7 +22,8 @@ public class PointGenerator : MonoBehaviour {
     {
         for(int i = 0;i<max_generateNumber;i++)
         {
-            Vector3 pos = generateFunc(radius);
+            //Vector3 pos = generateFunc(radius);
+            Vector3 pos = generateFunc2(radius);
 
             GameObject.Instantiate(preb,pos,Quaternion.identity);
         }
@@ -42,7 +43,15 @@ public class PointGenerator : MonoBehaviour {
         return new Vector3(r*_radius*Mathf.Cos(rad),r*_radius*Mathf.Sin(rad));
     }
 
-    
+
+    private Vector3 generateFunc2(float _radius)
+    {
+        float r = Mathf.Sqrt(Random.value);
+        float rad = 2.0f * Mathf.PI * Random.value;
+        return new Vector3(_radius * r * Mathf.Cos(rad), _radius * r * Mathf.Sin(rad));
+    }
+
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
