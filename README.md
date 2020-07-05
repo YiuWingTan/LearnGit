@@ -26,7 +26,7 @@ git中的合并有两种，一种是**fast forward** ，一种是**Automatic **�
 
 
 git 中**Automatic **的合并是要根据当前的需要进行合并的两个分支所对应的commit对象，和他们的共同祖先的commit对象，三者所拥有的快照信息，来进行合并的。如下图所示。
-![](.../pic/cp1_branch_merge.png)
+![](./pic/cp1_branch_merge.png)
 合并后的新的commit对象有两个父节点
 ![](./pic/cp1_branch_merge_after.png)
 
