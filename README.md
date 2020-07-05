@@ -3,7 +3,7 @@
 
 ## git中的文件状态
 git管理的项目中的文件分为两种类型，**已追踪**和**未追踪**，而已追踪的文件的文件状态又分为 **未修改**，**已修改**，**已暂存** 三种。如下图所受。
-![](../pic/cp1_filestate.png)
+![](.../pic/cp1_filestate.png)
 
 ## git 的管理方式
 当我们使用git创建一个提交的时候，git会根据当前工作目录上的数据，为每一个目录创建一个Tree对象（每一个Tree都保存有该目录下的文件信息），然后为每一个文件创建一个Blob对象(每一个Blob都保存一个文件的快照)，最后再创建一个Commit对象(Commit对象都保存有根目录的Tree对象指针)，如下所示。
@@ -12,22 +12,22 @@ git管理的项目中的文件分为两种类型，**已追踪**和**未追踪**
 
 当我们提交了一个修改，创建一个commit对象的时候，这个commit对象就会指向前一个commit对象，这些commit对象就会形成一条链表，如下图所示。
 
-![](../pic/cp1_commitlinks.png)
+![](.../pic/cp1_commitlinks.png)
 
 ## git 中的分支
 git 中的分支其实就是一个指针，创建分支实质上就是创建一个指向一个特定的commit对象的指针，而Head实质上就是一个指向当前工作目录所对应的分支的指针。如下图所示。
-![](../pic/cp1_branch.png)
+![](.../pic/cp1_branch.png)
 
 ## git 中分支的合并
 git中的合并有两种，一种是**fast forward** ，一种是**Automatic **。**fast foward**就是简单的指针移动，它发生的条件是两个要互相合并的分支互为祖孙关系。如下所示。
-![](../pic/cp1_branch_fast_forward.png)
+![](.../pic/cp1_branch_fast_forward.png)
 合并后
-![](../pic/cp1_branchmerge.png)
+![](.../pic/cp1_branchmerge.png)
 
 git 中**Automatic **的合并是要根据当前的需要进行合并的两个分支所对应的commit对象，和他们的共同祖先的commit对象，三者所拥有的快照信息，来进行合并的。如下图所示。
-![](../pic/cp1_branch_merge.png)
+![](.../pic/cp1_branch_merge.png)
 合并后的新的commit对象有两个父节点
-![](../pic/cp1_branch_merge_after.png)
+![](.../pic/cp1_branch_merge_after.png)
 
 ## 远程分支
 远程分支（remote branch）是对远程仓库中的分支的索引。它们是一些无法移动的本地分支；只有在 Git 进行网络交互时才会更新。远程分支就像是书签，提醒着你上次连接远程仓库时上面各分支的位置。
@@ -37,9 +37,9 @@ git 中**Automatic **的合并是要根据当前的需要进行合并的两个�
 ## rebase 操作
 衍合的目的，是想要得到一个能在远程分支上干净应用的补丁。
 它的原理是回到两个分支最近的共同祖先，根据当前分支（也就是要进行衍合的分支 experiment）后续的历次提交对象（这里只有一个 C3），生成一系列文件补丁，然后以基底分支（也就是主干分支 master）最后一个提交对象（C4）为新的出发点，逐个应用之前准备好的补丁文件，最后会生成一个新的合并提交对象（C3'），从而改写 experiment 的提交历史，使它成为 master 分支的直接下游。如下图所示。
-![](../pic/cp2_before_rebase.png)
+![](.../pic/cp2_before_rebase.png)
 衍合后，注意此时指针的所指的位置
-![](../pic/cp2_rebase.png)
+![](.../pic/cp2_rebase.png)
 
 ## git 中冲突的产生
 - 在合并分支的时候发生。
