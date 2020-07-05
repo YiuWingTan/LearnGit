@@ -24,8 +24,9 @@ git中的合并有两种，一种是**fast forward** ，一种是**Automatic **�
 合并后
 ![](./pic/cp1_branchmerge.png)
 
+
 git 中**Automatic **的合并是要根据当前的需要进行合并的两个分支所对应的commit对象，和他们的共同祖先的commit对象，三者所拥有的快照信息，来进行合并的。如下图所示。
-![](../pic/cp1_branch_merge.png)
+![](.../pic/cp1_branch_merge.png)
 合并后的新的commit对象有两个父节点
 ![](./pic/cp1_branch_merge_after.png)
 
@@ -37,9 +38,11 @@ git 中**Automatic **的合并是要根据当前的需要进行合并的两个�
 ## rebase 操作
 衍合的目的，是想要得到一个能在远程分支上干净应用的补丁。
 它的原理是回到两个分支最近的共同祖先，根据当前分支（也就是要进行衍合的分支 experiment）后续的历次提交对象（这里只有一个 C3），生成一系列文件补丁，然后以基底分支（也就是主干分支 master）最后一个提交对象（C4）为新的出发点，逐个应用之前准备好的补丁文件，最后会生成一个新的合并提交对象（C3'），从而改写 experiment 的提交历史，使它成为 master 分支的直接下游。如下图所示。
+
 ![](./pic/cp2_before_rebase.png)
 衍合后，注意此时指针的所指的位置
 ![](./pic/cp2_rebase.png)
+
 
 ## git 中冲突的产生
 - 在合并分支的时候发生。
