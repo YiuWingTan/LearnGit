@@ -132,7 +132,7 @@ git checkout HEAD <文件名> :撤销指定的未提交文件的修改内容
 
 git reset HEAD <文件名> : 撤销指定文件修改的暂存。
 
-git reset --hard <commit ID> : 将当前的分支回退到指定的commit，不会创建新的commit。
+git reset --hard <commit ID> : 将当前的分支回退到指定的commit，不会创建新的commit，并且该分支的修改会在暂存区中。
 
 git reset <分支相对引用> :将当前的分支回退到指定的位置，由相对引用来指定回退的步数，不会创建新的commit。
 
