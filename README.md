@@ -138,6 +138,10 @@ git checkout <提交的ID> :让Head指针指向制定的提交
 git reset <分支相对引用> :撤销对应分支的修改，有相对引用来制定回退的步数，不会创建新的commit。
 
 git revert <分支名> :撤销制定分支的最后一个修改，会创建一个新的commit，用来修改到前一个状态。
+
+git checkout --ours <文件名>:当冲突发生时保留指定文件的本地版本。
+
+git checkout --theirs <文件名> :当冲突发生时保留指定文件的远端版本。
 ```
 
 ### 对远端的操作
