@@ -6,6 +6,8 @@
 git add -a 
 git commit -m ""
 git checkout <分支名>
+git checkout -- .
+git checkout -- <文件名>
 git merge <分支名>
 git revert <commitID>
 git rebase <分支名>
@@ -46,13 +48,18 @@ git中的合并有两种，一种是**fast forward** ，一种是**Automatic **�
 
 git 中**Automatic **的合并根据当前需要进行合并的两个分支所对应的commit对象，和他们的共同祖先的commit对象，三者所拥有的快照信息，来进行合并的。如下图所示。
 ![](./pic/cp1_branch_merge.png)
-合并后的新的commit对象指向两个父节点
+合并后的新的commit对象指向两个父节点     
 ![](./pic/cp1_branch_merge_after.png)
 
 ## 远程分支
 远程分支（remote branch）是对远程仓库中的分支的索引。它们是一些无法移动的本地分支；只有在 Git 进行网络交互时才会更新。远程分支就像是书签，提醒着你上次连接远程仓库时上面各分支的位置。
 当我们首次fetch，pull一个服务器上的分支的时候，本地就会创建一个远程分支和一个追踪分支。当我们clone一个仓库的时候，就会为远程库中的所有分支创建远程分支和对应的追踪分支。这些远程分支的命名默认为 <远程版本库名>/<远程分支名>，而追踪分支的名称默认为<远程分支名>。当我们从服务器中或者远程分支拉取数据的时候，本地的远程分支也会进行移动。如下图所示。
 ![](./pic/cp2_remotebranch.png)
+
+## revert 和reset 操作
+revert 操作会提交一个新的commit 来进行一个回退，而reset操作则会直接回退到对应的commit的对象上。
+在服务上使用revert来回退操作，和使用force push的方式的差别在于，使用force push 的方式可能会将其他做的修改给覆盖掉。而revert则不会放生这种情况。
+
 
 ## rebase 操作
 衍合的目的，是想要得到一个能在远程分支上干净应用的补丁。
