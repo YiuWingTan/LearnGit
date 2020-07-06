@@ -138,8 +138,6 @@ git reset <分支相对引用> :将当前的分支回退到指定的位置，由
 
 git checkout -- <文件名> :撤销文件的修改
 
-git checkout <提交的ID> :让Head指针指向指定的提交
-
 git revert <分支名> :撤销制定分支的最后一个修改，会创建一个新的commit，用来修改到前一个状态。
 
 git revert <commitID> :撤销指定提交,会新创建一些提交来覆盖想要进行撤销的提交。
@@ -186,6 +184,8 @@ git tag -a <标签名> <提交的ID> :为某个提交打上标签
 
 ### 分支相关命令
 ```
+git checkout <提交的ID> :让Head指针指向指定的提交
+
 git branch :查看本地分支信息
 
 git branch <分支名> :创建一个分支
