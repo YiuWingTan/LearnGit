@@ -1,6 +1,25 @@
 # LearnGit
 通过模拟一个小项目来学习git
 
+## 常用指令
+```
+git add -a 
+git commit -m ""
+git checkout <分支名>
+git merge <分支名>
+git rebase <分支名>
+git reset <commit ID>
+git reset --hard HEAD
+git branch <分支名>
+git branch -f <分支名> <commit ID>
+git push <版本库名> <分支名>
+git push origin HEAD --force
+git pull <版本库名> <分支名>
+git pull --rebase <版本库名> <分支名>
+git log --graph
+```
+
+
 ## git中的文件状态
 git管理的项目中的文件分为两种类型，**已追踪**和**未追踪**，而已追踪的文件的文件状态又分为 **未修改**，**已修改**，**已暂存** 三种。如下图所受。
 ![](./pic/cp1_filestate.png)
