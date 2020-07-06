@@ -275,8 +275,5 @@ git remote add <自定义的远程版本库的名称> <url 远程版本库的地
 //再用 git push origin HEAD --force 强制推送到远程
 ```
 
-## 如何修改已经提交到服务器中的提交信息
-```
 
-```
 
