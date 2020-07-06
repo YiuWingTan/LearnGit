@@ -7,6 +7,7 @@ git add -a
 git commit -m ""
 git checkout <分支名>
 git merge <分支名>
+git revert <commitID>
 git rebase <分支名>
 git reset <commit ID>
 git reset --hard HEAD
