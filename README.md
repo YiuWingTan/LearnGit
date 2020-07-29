@@ -377,7 +377,7 @@ git branch
 git branch -a
 ```
 
-### 如何更换远程版本库的地址
+### 如何更换添加远程版本库的地址
 ```
 git remote rm <远程版本库名>
 git remote add <自定义的远程版本库的名称> <url 远程版本库的地址>
@@ -395,5 +395,11 @@ git remote add <自定义的远程版本库的名称> <url 远程版本库的地
 //再用 git push origin HEAD --force 强制推送到远程
 ```
 
-
+### 重命名一个tag
+```
+//方法二 将重名tag改名之后再跳转到Henry上
+git tag HenryTag
+git tag -d Henry
+git checkout Henry
+```
 
