@@ -3,7 +3,7 @@
 
 ## 常用指令
 ```
-git add -a 
+git add --all 
 git commit -m ""
 git checkout <分支名>
 git checkout -- .
