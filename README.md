@@ -1,5 +1,38 @@
 # LearnGit
-通过模拟一个小项目来学习git
+- [常用指令](#常用指令)
+- [git中的文件状态](#git中的文件状态)
+- [git 的管理方式](#git 的管理方式)
+- [git 中的分支](#git 中的分支)
+- [git 中分支的合并](#git 中分支的合并)
+- [远程分支](#远程分支)
+- [revert 和reset 操作](#revert 和reset 操作)
+- [rebase 操作](#rebase 操作)
+- [git 中merge，rebase，pull操作中指针的变化](#git 中merge，rebase，pull操作中指针的变化)
+	- [merge 命令中的指针变化](#merge 命令中的指针变化)
+	- [rebase 命令中指针的变化](#rebase 命令中指针的变化)
+	- [pull 命令的指针变化](#pull 命令的指针变化)
+	- [push 命令的指针变化](#push 命令的指针变化)
+- [git 中冲突的产生](#git 中冲突的产生)
+- [一些基本命令](#一些基本命令)
+	- [将修改添加到暂存区中](#将修改添加到暂存区中)
+	- [查看文件的修改](#查看文件的修改)
+	- [提交修改到本地的版本库中](#提交修改到本地的版本库中)
+	- [删除文件](#删除文件)
+	- [查看提交历史](#查看提交历史)
+	- [撤销修改](#撤销修改)
+	- [对远端的操作](#对远端的操作)
+	- [标签相关的命令](#标签相关的命令)
+	- [分支相关命令](#分支相关命令)
+	- [其他命令](#其他命令)
+- [一些具体操作](#一些具体操作)
+	- [如何创建本地分支和远程分支](#如何创建本地分支和远程分支)
+	- [如何删除本地分支和远程分支](#如何删除本地分支和远程分支)
+	- [git如何查看本地和远程版本库的分支信息](#git如何查看本地和远程版本库的分支信息)
+	- [如何更换远程版本库的地址](#如何更换远程版本库的地址)
+	- [当想要修改以前的某个提交的时候](#当想要修改以前的某个提交的时候)
+	- [如何撤销已经推送到远程的提交](#如何撤销已经推送到远程的提交)
+
+
 
 ## 常用指令
 ```
@@ -69,6 +102,60 @@ revert 操作会提交一个新的commit 来进行一个回退，而reset操作�
 衍合后，注意此时指针的所指的位置
 ![](./pic/cp2_rebase.png)
 
+## git 中merge，rebase，pull操作中指针的变化
+
+### merge 命令中的指针变化
+git 初始状态,如下所示。
+![](./pic/cp1_merge1.png)
+
+```git
+git branch master 
+git merge develop
+-- 将develop分支和master分支进行合并，合并之后master分支的指针移动到合并提交上，
+-- develop分支指针不改变。
+```
+命令执行之后git状态
+![](./pic/cp2_merge2.png)
+
+###  rebase 命令中指针的变化
+git 初始状态,如下所示。
+![](./pic/cp1_merge1.png)
+
+```
+git branch master 
+git rebase develop
+//将master 分支沿合到 develop 分支上，沿合后master指针指向最新的提交。
+```
+命令执行之后git的状态为
+![](./pic/cp2_rebase1.png)
+
+### pull 命令的指针变化
+git 初始状态,如下所示。
+![](./pic/cp2_pull1.png)
+
+```
+git branch master 
+git pull origin master
+//在o/master 远程分支上提交远程中修改过的所有提交，然后合并o/master和master分支，
+//再更新master分支到合并后的结果处。
+```
+命令执行之后git状态为
+![](./pic/cp2_pull2.png)
+
+
+### push 命令的指针变化
+git 初始状态,如下所示。
+![](./pic/cp2_push1.png)
+
+```
+git branch master 
+git push origin master
+//将master分支上的修改提交到远程，然后更新远程上的分支，本地o/master分支移动到master处
+```
+命令执行之后git状态为
+![](./pic/cp2_push2.png)
+
+----------------
 
 ## git 中冲突的产生
 - 在合并分支的时候发生。
@@ -93,6 +180,10 @@ git add -a 该命令将所有已追踪和未追踪的文件的修改添加到暂
 git diff  :查看工作区的文件和暂存区中的文件的差别。
 
 git diff --cached 或者 git diff --stage  :查看暂存区中的文件和上次提交的文件的差异。
+
+git diff <分支名> ：查看当前分支和指定分支文件的差别
+
+git diff <分支名> <文件名> :查看当前分支和指定分支指定文件的差别
 
 ```
 
@@ -149,6 +240,8 @@ git log --pretty=format:"<格式占位符> - <格式占位符>, <格式占位符
     %cd 提交日期
     %cr 提交日期，按多久以前的方式显示
     %s 提交说明
+
+git blame <文件名> 查看在当前commit中，指定文件每一行的提交者。方便找出制造bug的人
 ```
 
 ### 撤销修改
@@ -284,7 +377,7 @@ git branch
 git branch -a
 ```
 
-### 如何更换远程版本库的地址
+### 如何更换添加远程版本库的地址
 ```
 git remote rm <远程版本库名>
 git remote add <自定义的远程版本库的名称> <url 远程版本库的地址>
@@ -302,5 +395,11 @@ git remote add <自定义的远程版本库的名称> <url 远程版本库的地
 //再用 git push origin HEAD --force 强制推送到远程
 ```
 
-
+### 重命名一个tag
+```
+//方法二 将重名tag改名之后再跳转到Henry上
+git tag HenryTag
+git tag -d Henry
+git checkout Henry
+```
 
